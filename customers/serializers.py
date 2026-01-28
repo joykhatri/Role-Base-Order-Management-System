@@ -1,34 +1,3 @@
-# from rest_framework import serializers
-# from .models import Customer
-
-# class CustomerSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Customer
-#         fields = ['id', 'name', 'email', 'phone', 'created_at']
-
-#     def validate_phone(self, value):
-#         if not value:
-#             raise serializers.ValidationError("Phone number is required.")
-#         digits = ''.join(filter(str.isdigit, value))
-#         if len(digits) < 10:
-#             raise serializers.ValidationError("Phone number must be at least 10 digits")
-#         if digits.startswith('-'):
-#             raise serializers.ValidationError("Phone number cannot be negative.")
-#         if Customer.objects.filter(phone=digits).exists():
-#             raise serializers.ValidationError("Phone number is already in use.")
-#         return digits
-    
-    
-#     def validate(self, data):
-#         if not data.get('name'):
-#             raise serializers.ValidationError({"name": "Name field is required"})
-#         if not data.get('email'):
-#             raise serializers.ValidationError({"email": "Email field is required"})
-#         if not data.get('phone'):
-#             raise serializers.ValidationError({"phone": "Phone field is required"})
-#         return data
-
-
 from rest_framework import serializers
 from .models import Customer
 from django.contrib.auth.hashers import make_password
@@ -78,4 +47,5 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True, error_messages={"required": "Email is required"})
+
     password = serializers.CharField(write_only=True, required=True, error_messages={"required": "Password is required"})
