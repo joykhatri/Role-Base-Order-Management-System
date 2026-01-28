@@ -11,8 +11,6 @@ class ProductSerializer(serializers.ModelSerializer):
         errors = {}
         if not data.get('name'):
             raise serializers.ValidationError({"name": "Name field is required"})
-        # if not data.get('price'):
-        #     raise serializers.ValidationError({"price": "Price field is required"})
 
         price = data.get('price')
         if price in [None, '']:
@@ -31,4 +29,5 @@ class ProductSerializer(serializers.ModelSerializer):
         if errors:
             raise serializers.ValidationError(errors)
         
+
         return data
