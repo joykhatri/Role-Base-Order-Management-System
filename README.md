@@ -100,5 +100,4 @@ Ex.  {
 POST /api/cutomers/login/
 
 after login you have get 2 tokens (access & refresh).
-enter access token in authorization with Berear
-ex. Berear (access token)
+enter access token in authorization (Auth Type - Bearer Token)
