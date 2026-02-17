@@ -98,6 +98,7 @@ python manage.py runserver
 | Method | Endpoint                | Description              | Payload Example                                              |
 | ------ | ----------------------- | ------------------------ | ------------------------------------------------------------ |
 | POST   | `/api/customers/login/` | Login and get JWT tokens | `{ "email": "john@example.com", "password": "password123" }` |
+
 Response returns access and refresh tokens.
 ```bash
 Use access token in Authorization header:
